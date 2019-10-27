@@ -81,6 +81,7 @@ def _new_ing(ingredients):
 
 
 def _reco(food):
+    b_co2 = ""
     for cat in DATA:
         if food in DATA[cat]:
             w_co2 = DATA[cat][food]["nut"][0]
@@ -110,7 +111,7 @@ def food_quality(ingredients):
         "water": 0,
         "health": 5,
         "tree": 0,
-        "rec": "",
+        "rec": ["", ""],
     }
     
     # capitalize ingredients
@@ -132,10 +133,11 @@ def food_quality(ingredients):
                 use["tree"] += (nutr[0] + nutr[1]) / 1960 # tree mass = 1960 kg
                 if nutr[0] > e_max:
                     e_max = nutr[0]
-                    use["rec"] = ing
+                    use["rec"][0] = ing
 
     # better food option
-    use["rec"] = _reco(use["rec"])
+    use["rec"][1] = _reco(use["rec"][0])
+    use["rec"] = use["rec"][0] + ',' + use["rec"][1]
 
     # health grade calculation
     use["health"] -= _health_grade(ingredients)
@@ -175,3 +177,22 @@ def tree_predict(co2):
     trees = int(sum([line[0] * i + line[1] for i in range(365)]) // 980)
 
     return trees if trees > 0 else 0
+
+def graph(co2, water):
+    import matplotlib.pyplot as plt
+    import base64
+    import io
+    buf = io.BytesIO()
+
+    fig, axs = plt.subplots(2)
+    fig.suptitle("CO2 and Water Emissions")
+    axs[0].set_ylabel("CO2 Emissions (kg)")
+    axs[0].plot(range(len(co2)), co2, color="green")
+    axs[1].set_ylabel("Water Usage (ltr)")
+    axs[1].set_xlabel("Time (days)")
+    axs[1].plot(range(len(water)), water, color="blue")
+    fig.show()
+    fig.savefig(buf, format='png')
+
+    buf.seek(0)
+    return base64.b64encode(buf.read())

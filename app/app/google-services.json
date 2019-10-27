@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "161137268911",
+    "firebase_url": "https://ecoeat-dbec8.firebaseio.com",
+    "project_id": "ecoeat-dbec8",
+    "storage_bucket": "ecoeat-dbec8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:161137268911:android:0280fae6c0a07e04ee9c5a",
+        "android_client_info": {
+          "package_name": "tech.reallygood.ecoeat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "161137268911-rh15qn1vjcij1it8ee8ejr25ja30ll01.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "tech.reallygood.ecoeat",
+            "certificate_hash": "d7296b8a6289c03630b16c059ec901a92fa2f1a3"
+          }
+        },
+        {
+          "client_id": "161137268911-dtf3onhratb6v39ufrlnalpflstk4k9s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDygnLI7psFj0iRSR1l5ZcWgVAu6W5YgBo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "161137268911-dtf3onhratb6v39ufrlnalpflstk4k9s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
